@@ -1,1 +1,1 @@
-<?php include_once("fs3.html"); ?>
+<?php include_once(“game.html”); ?>

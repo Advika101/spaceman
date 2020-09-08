@@ -1,0 +1,278 @@
+
+<html>
+	<head><script src="https://code.jquery.com/jquery-3.2.1.min.js"></script></head>
+	<script>
+		(function($) {
+			$.fn.textfill = function(options) {
+				var fontSize = options.maxFontPixels;
+				var ourText = $('span:visible:first', this);
+				var maxHeight = $(this).height();
+				var maxWidth = $(this).width();
+				var textHeight;
+				var textWidth;
+				
+					do {
+						ourText.css('font-size', fontSize);
+						textHeight = ourText.height();
+						textWidth = ourText.width();
+						fontSize = fontSize - 1;
+						//console.log("maxHeight = " + maxHeight + " maxWidth = " + maxWidth);
+						//console.log("textHeight = " + textHeight + " textWidth = " + textWidth + " fontSize = " + fontSize);
+					} while ((textHeight > (maxHeight/1.2) || textWidth > maxWidth) && fontSize > 3);
+				return this;
+			}
+		})(jQuery);
+
+		$(document).ready(function() {
+			$('.jtextfill').textfill({ maxFontPixels: 64 });
+		});
+		$(window).resize(function () {
+			$('.jtextfill').textfill({ maxFontPixels: 64 });//run on every window resize
+			//console.log("----------------------resize------------------------------");
+		});
+	</script>
+
+	<style type="text/css">
+			@font-face{
+				font-family:'gameFont';
+				src: url('retro_gaming-webfont.woff') format('woff');
+			
+			}
+			body { 
+				background: url('try1.gif') no-repeat center center fixed #000; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			
+			.btn-group button {
+				  background-color: transparent; /* Green background */
+				  border: none; /*solid green  Green border */
+				  color: white; /* White text */
+				  padding: 10px 24px; /* Some padding */
+				  cursor: pointer; /* Pointer/hand icon */
+				  float: left; /* Float the buttons side by side */
+				  font-family: 'gameFont';
+				  font-size: 5vh;
+			}
+
+			btn-group button:not(:last-child) {
+				  border-right: none; /* Prevent double borders */
+			}
+
+				/* Clear floats (clearfix hack) */
+			btn-group:after {
+				  content: "";
+				  clear: both;
+				  display: table;
+			}
+
+				/* Add a background color on hover */
+			.btn-group button:hover {
+				  background-color: #3e8e41;
+			}
+			#blankbtn .btn-group button:hover{
+				background-color: transparent;
+			}
+			#blankbtn .btn-group button{
+				cursor: auto;
+			}
+			.keypad{
+				  top: 3h;
+				  /*right:10vw;*/
+				  bottom:0;
+				  /*position:absolute;*/
+				  margin-right: auto;
+				  margin-left: auto;
+				  /*align: center;*/
+				  padding-bottom:3vh;
+				  
+			}
+			.keypad1{
+				  top: 3vh;
+				  /*right:10vw;*/
+				  bottom: 0;
+				  /*position:absolute;*/
+				  float: right;
+				  width: 100%;
+				  
+			}
+			h1{
+				background-color: transparent; /* Green background */
+				 border: none; /*solid green  Green border */
+				 color: white; /* White text */
+				 
+				 font-family: 'gameFont';
+			}
+			span.nobr{
+				white-space: nowrap;
+			}
+			#right{
+				width:50%
+			}
+			#left{
+				width:50%
+			}
+			.jtextfill {
+			   height: 50px;
+			   /* width: 400px; */
+			   resize:both;
+			   width: 100%;
+			}
+	</style>
+	<body>
+		<table style="margin:0px;width:100%">
+		<tr><td style="width:50%"></td>
+		
+		<td style="margin-left:auto;margin-right:auto;width:50%">
+			<table class="keypad" style="padding-bottom:5vmin" id="def1">
+				<tr>
+					<td><h1>
+								<div class="btn-group">
+										<button style="width:25%" value="A" onclick=checkLet(this)>A</button>
+										<button style="width:25%" value="B" onclick=checkLet(this)>B</button>
+										<button style="width:25%" value="C" onclick=checkLet(this)>C</button>
+										<button style="width:25%" value="D" onclick=checkLet(this)>D</button>
+								</div>
+								<div class="btn-group" style="width:100%">
+										<button style="width:25%" value="E" onclick=checkLet(this)>E</button>
+										<button style="width:25%" value="F" onclick=checkLet(this)>F</button>
+										<button style="width:25%" value="G" onclick=checkLet(this)>G</button>
+										<button style="width:25%" value="H" onclick=checkLet(this)>H</button>
+								</div>
+								<div class="btn-group" style="width:100%">
+										<button style="width:25%" value="I" onclick=checkLet(this)>I</button>
+										<button style="width:25%" value="J" onclick=checkLet(this)>J</button>
+										<button style="width:25%" value="K" onclick=checkLet(this)>K</button>
+										<button style="width:25%" value="L" onclick=checkLet(this)>L</button>
+								</div>
+								<div class="btn-group" style="width:100%">
+										<button style="width:25%" value="M" onclick=checkLet(this)>M</button>
+										<button style="width:25%" value="N" onclick=checkLet(this)>N</button>
+										<button style="width:25%" value="O" onclick=checkLet(this)>O</button>
+										<button style="width:25%" value="P" onclick=checkLet(this)>P</button>
+								</div>
+								<div class="btn-group" style="width:100%">
+										<button style="width:25%" value="Q" onclick=checkLet(this)>Q</button>
+										<button style="width:25%" value="R" onclick=checkLet(this)>R</button>
+										<button style="width:25%" value="S" onclick=checkLet(this)>S</button>
+										<button style="width:25%" value="T" onclick=checkLet(this)>T</button>
+								</div>
+								<div class="btn-group" style="width:100%">
+										<button style="width:25%" value="U" onclick=checkLet(this)>U</button>
+										<button style="width:25%" value="V" onclick=checkLet(this)>V</button>
+										<button style="width:25%" value="W" onclick=checkLet(this)>W</button>
+										<button style="width:25%" value="X" onclick=checkLet(this)>X</button>
+								</div>
+								
+								<div class="btn-group" style="width:100%">
+										<section id="blankbtn">
+											<span class="btn-group"><button style="width:25%" hover="background-color: transparent"></button></span>
+										</section>
+										<button style="width:25%" value="Y" onclick=checkLet(this)>Y</button>
+										<button style="width:25%" value="Z" onclick=checkLet(this)>Z</button>
+										<section id="blankbtn">
+											<span class="btn-group"><button style="width:25%" hover="background-color: transparent"></button></span>
+										</section>
+								</div>
+						</h1></td>
+					</tr>
+				</table>
+				
+			<table class="keypad1">
+					<tr>
+						<td>
+							<div class='jtextfill'><h1 style="text-align:center;">
+								<span id="wordVar"></span>
+							</h1>
+							</div>
+							</td>
+					</tr>
+			</table>
+			<table class="keypad1">
+					<tr>
+						<td>
+							<div class='jtextfill'><h1 style="text-align:center; font-size:5vmin" id="def">
+								
+							</h1>
+							</div>
+							</td>
+					</tr>
+			</table>
+		</td></tr></table>
+	</body>
+					<script>
+					var gifNo = 0
+					var gifAr = ["try1","try1-2","try2","try2-3","try3", "try3-4", "try4","try4-5","try5"];
+					var transAr = [1700, 2800, 3100,1200]
+					var currWord = getWord();
+					function checkLet(currBut){
+						var currText = document.getElementById("wordVar").innerHTML.split("");
+						
+						var currLet = currBut.value;
+						if (currWord.indexOf(currLet) != -1){
+		
+							for(var i= 0; i<currWord.length; i++){
+								if (currLet == currWord.charAt(i)){
+									currText[i*2] = currWord.charAt(i);
+								}
+							}
+							document.getElementById("wordVar").innerHTML = currText.join("");
+						}
+						else{
+							changeGif();
+							console.log("gifChange")
+						}
+						//currBut.innerHTML="<img src='letDissapear.gif' />";
+						currBut.style.cssText = "color : rgba(255,255,255,0);background-size: cover;";
+						console.log(gifNo);
+						currBut.style.backgroundImage = "url('letDissapear1.gif?" + Math.random() + "')";
+						currBut.disabled = true;
+					}
+					function defWord(){
+						document.getElementById("def1").innerHTML = "a small slow-moving Old World lizard with a prehensile tail, long extensible tongue, protruding eyes that rotate independently, and a highly developed ability to change colour."
+					}
+					
+					function displayText(currWord){
+						var noDash = currWord.length
+						var text = "";
+						for(var i=0; i<noDash;i++){
+							text += "_ "
+						}
+						text = text.trim();
+						document.getElementById("wordVar").innerHTML = text;
+					}
+					function getWord(){
+						return "CHAMELeON".toUpperCase();
+					}
+					function changeGif(){
+						++gifNo;
+						if (gifNo < gifAr.length){
+							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
+							if(gifNo % 2 == 1){	// all odd no gifs are transitional
+								window.setTimeout(trans, transAr[(gifNo-1)/2]); //2n+1 corresponds to gifNo index
+							}
+							console.log(gifNo);
+						}
+						else{
+							var finWord = "";
+							for (var i =0; i<currWord.length; i++){
+								finWord += currWord.charAt(i) + " ";
+							}
+							document.getElementById("wordVar").innerHTML = finWord;
+							defWord();
+						}
+					}
+					function trans(){
+						
+							gifNo++
+							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
+
+					}
+					
+				</script>
+				<script>
+				displayText(getWord());
+				</script>
+</html>
