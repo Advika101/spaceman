@@ -4,7 +4,7 @@
 			Word:
 		</td>
 		<td>
-			<textarea rows="4" cols="50"></textarea>
+			<textarea rows="4" cols="50" id="word"></textarea>
 		</td>
 	</tr>
 	<tr>
@@ -12,7 +12,7 @@
 			Def:
 		</td>
 		<td>
-			<textarea rows="4" cols="50"></textarea>
+			<textarea rows="4" cols="50" id="def"></textarea>
 		</td>
 	</tr>
 	<tr colspan="2" style>
@@ -24,6 +24,8 @@
 	
 <script>
 	function submitWord(){
-		window.location = "game.html"
+		sessionStorage.setItem("word", document.getElementById("word").value);
+		sessionStorage.setItem("def", document.getElementById("def").value);
+		window.location = "game.html";
 	}
 </script>
