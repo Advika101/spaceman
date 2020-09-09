@@ -210,6 +210,11 @@
 					var transAr = [1700, 2800, 3100,1200]
 					var currWord = getWord();
 					function checkLet(currBut){
+						currBut.style.cssText = "color : rgba(255,255,255,0);background-size: cover;";
+						console.log(gifNo);
+						currBut.style.backgroundImage = "url('letDissapear1.gif?" + Math.random() + "')";
+						currBut.disabled = true;
+						
 						var currText = document.getElementById("wordVar").innerHTML.split("");
 						
 						var currLet = currBut.value;
@@ -224,13 +229,17 @@
 						}
 						else{
 							changeGif();
-							console.log("gifChange")
+							
 						}
 						//currBut.innerHTML="<img src='letDissapear.gif' />";
-						currBut.style.cssText = "color : rgba(255,255,255,0);background-size: cover;";
-						console.log(gifNo);
-						currBut.style.backgroundImage = "url('letDissapear1.gif?" + Math.random() + "')";
-						currBut.disabled = true;
+						if(currText.includes("_")){
+							console.log("NOT OVER")
+						}
+						else{
+							end();
+						}
+)
+						
 					}
 					function end(){
 						document.getElementById("def1").innerHTML = sessionStorage.getItem("def");
@@ -241,11 +250,15 @@
 
 						// appending text to button 
 						button.appendChild(document.createTextNode("New Game")); 
-						button.onclick = newGame();
+						button.onclick =  function() {newGame()};
 						// appending button to div 
 						document.getElementById("newGameBut").appendChild(button);  
 						
-					
+						var finWord = "";
+						for (var i =0; i<currWord.length; i++){
+							finWord += currWord.charAt(i) + " ";
+						}
+						document.getElementById("wordVar").innerHTML = finWord;
 					}
 					function displayText(currWord){
 						var noDash = currWord.length
@@ -269,11 +282,6 @@
 							console.log(gifNo);
 						}
 						else{
-							var finWord = "";
-							for (var i =0; i<currWord.length; i++){
-								finWord += currWord.charAt(i) + " ";
-							}
-							document.getElementById("wordVar").innerHTML = finWord;
 							end();
 						}
 					}
