@@ -4,7 +4,7 @@
 			Word:
 		</td>
 		<td>
-			<textarea rows="4" cols="50" id="word"></textarea>
+			<textarea rows="4" cols="50" id="word" oninput=submitWord()></textarea>
 		</td>
 	</tr>
 	<tr>
@@ -24,8 +24,22 @@
 	
 <script>
 	function submitWord(){
-		sessionStorage.setItem("word", document.getElementById("word").value);
-		sessionStorage.setItem("def", document.getElementById("def").value);
-		window.location = "game.html";
+		if(isValid(document.getElementById("word").value){
+			sessionStorage.setItem("word", document.getElementById("word").value);
+			sessionStorage.setItem("def", document.getElementById("def").value);
+			window.location = "game.html";
+		}
 	}
+	function isValid(inputtxt){
+		   var letters = /^[A-Za-z]+$/;
+		   if(!letters.test(inputtxt.value))
+		     {
+		      alert("Invalid characters!");
+		      return false;
+		     }
+		   else
+		     {
+		     return true;
+		     }
+		  }
 </script>
