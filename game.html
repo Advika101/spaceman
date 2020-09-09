@@ -197,16 +197,11 @@
 							</td>
 					</tr>
 			</table>
-			<table class="keypad1">
-					<tr>
-						<td>
-							<div class='jtextfill'><h1 style="text-align:center;">
-								<span id="newGameBut"></span>
-							</h1>
-							</div>
-							</td>
-					</tr>
-			</table>
+			<div class="btn-group" style="width:100%" id="newGameBut">		
+			</div>
+		</td>
+		</tr>
+		</table>
 		</td></tr></table>
 	</body>
 					<script>
@@ -239,9 +234,19 @@
 					}
 					function end(){
 						document.getElementById("def1").innerHTML = sessionStorage.getItem("def");
-						document.getElementById("newGameBut").innerHTML = "New Game"
-					}
+						 
+                  
+						// creating button element  
+						var button = document.createElement('BUTTON'); 
+
+						// appending text to button 
+						button.appendChild(document.createTextNode("New Game")); 
+						button.onclick = newGame();
+						// appending button to div 
+						document.getElementById("newGameBut").appendChild(button);  
+						
 					
+					}
 					function displayText(currWord){
 						var noDash = currWord.length
 						var text = "";
@@ -279,6 +284,7 @@
 
 					}
 					function newGame(){
+						sessionStorage.clear();
 						window.location = "index.html"
 					}
 					
