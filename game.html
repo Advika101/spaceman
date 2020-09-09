@@ -228,7 +228,7 @@
 						currBut.disabled = true;
 					}
 					function defWord(){
-						document.getElementById("def1").innerHTML = "a small slow-moving Old World lizard with a prehensile tail, long extensible tongue, protruding eyes that rotate independently, and a highly developed ability to change colour."
+						document.getElementById("def1").innerHTML = sessionStorage.getItem("def")
 					}
 					
 					function displayText(currWord){
@@ -241,7 +241,7 @@
 						document.getElementById("wordVar").innerHTML = text;
 					}
 					function getWord(){
-						return "CHAMELeON".toUpperCase();
+						return sessionStorage.getItem("word").toUpperCase();
 					}
 					function changeGif(){
 						++gifNo;
