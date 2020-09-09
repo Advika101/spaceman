@@ -197,6 +197,16 @@
 							</td>
 					</tr>
 			</table>
+			<table class="keypad1">
+					<tr>
+						<td>
+							<div class='jtextfill'><h1 style="text-align:center;">
+								<span id="newGameBut"></span>
+							</h1>
+							</div>
+							</td>
+					</tr>
+			</table>
 		</td></tr></table>
 	</body>
 					<script>
@@ -227,8 +237,9 @@
 						currBut.style.backgroundImage = "url('letDissapear1.gif?" + Math.random() + "')";
 						currBut.disabled = true;
 					}
-					function defWord(){
-						document.getElementById("def1").innerHTML = sessionStorage.getItem("def")
+					function end(){
+						document.getElementById("def1").innerHTML = sessionStorage.getItem("def");
+						document.getElementById("newGameBut").innerHTML = "<div class="btn-group" style="width:100%"><button onclick=newGame()>New Game</button></div>"
 					}
 					
 					function displayText(currWord){
@@ -258,7 +269,7 @@
 								finWord += currWord.charAt(i) + " ";
 							}
 							document.getElementById("wordVar").innerHTML = finWord;
-							defWord();
+							end();
 						}
 					}
 					function trans(){
@@ -266,6 +277,9 @@
 							gifNo++
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
 
+					}
+					function newGame(){
+						window.location = "index.html"
 					}
 					
 				</script>
