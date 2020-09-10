@@ -267,6 +267,7 @@
 						document.getElementById("wordVar").innerHTML = finWord;
 						document.body.style.background = "#00005E";
 						document.getElementById("gameOvertxt").innerHTML = "GAME OVER";
+						document.getElementById("tryNo").innerHTML = "";
 					}
 					function displayText(currWord){
 						var noDash = currWord.length
@@ -312,5 +313,6 @@
 				</script>
 				<script>
 				displayText(getWord());
+				tryNo();
 				</script>
 </html>
