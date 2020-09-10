@@ -6,6 +6,9 @@
 		<td>
 			<textarea rows="4" cols="50" id="word" oninput=isValid(this)></textarea>
 		</td>
+		<td>
+			<span id="warning" style="font-color:red"></span>
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -34,7 +37,7 @@
 		   var letters = /^[A-Za-z]+$/;
 		   if(!letters.test(inputtxt.value))
 		     {
-		      alert("Invalid characters!");
+		      document.getElementById("warning").innerHTML = "Invalid characters!";
 		      return false;
 		     }
 		   else
