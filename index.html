@@ -30,7 +30,7 @@
 		if(isValid(document.getElementById("word").value)){
 			sessionStorage.setItem("word", document.getElementById("word").value);
 			sessionStorage.setItem("def", document.getElementById("def").value);
-			console.log(isValid(document.getElementById("word").value))
+			console.log(document.getElementById("word").value);
 			//window.location = "game.html";
 		}
 	}
@@ -44,6 +44,7 @@
 		   else
 		     {
 	 	     document.getElementById("warning").innerHTML = "";
+		     console.log("return true")
 		     return true;
 		     }
 		  }
