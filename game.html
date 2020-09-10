@@ -288,12 +288,11 @@
 						}
 						else{
 							document.body.style.cssText = "background: url('" + gifAr[(gifAr.length)-1] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
-							window.setTimeout(function(){}, transAr[(transAr.length)-1]);
-							end();
+							window.setTimeout(end, transAr[(transAr.length)-1]);
+							
 						}
 					}
 					function trans(){
-						
 							gifNo++
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
 
