@@ -279,7 +279,7 @@
 					}
 					function changeGif(){
 						++gifNo;
-						if (gifNo < gifAr.length){
+						if (gifNo < gifAr.length-1){
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
 							if(gifNo % 2 == 1){	// all odd no gifs are transitional
 								window.setTimeout(trans, transAr[(gifNo-1)/2]); //2n+1 corresponds to gifNo index
@@ -287,6 +287,8 @@
 							console.log(gifNo);
 						}
 						else{
+							document.body.style.cssText = "background: url('" + gifAr[(gifAr.length)-1] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
+							window.setTimeout(trans, transAr[(transAr.length)-1]);
 							end();
 						}
 					}
