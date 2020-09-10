@@ -36,7 +36,7 @@
 	}
 	function isValid(inputtxt){
 		   var letters = /^[A-Za-z]+$/;
-		   console.log(inputtxt.value);
+		   console.log(inputtxt.value + ", " +inputtxt);
 		   if(!letters.test(inputtxt.value))
 		     {
 		      document.getElementById("warning").innerHTML = "Invalid characters!";
