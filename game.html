@@ -288,7 +288,7 @@
 						}
 						else{
 							document.body.style.cssText = "background: url('" + gifAr[(gifAr.length)-1] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
-							window.setTimeout(trans, transAr[(transAr.length)-1]);
+							window.setTimeout(function(){}, transAr[(transAr.length)-1]);
 							end();
 						}
 					}
