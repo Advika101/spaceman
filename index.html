@@ -27,16 +27,16 @@
 	
 <script>
 	function submitWord(){
-		if(isValid(document.getElementById("word").value)){
+		if(isValid(document.getElementById("word"))){
 			sessionStorage.setItem("word", document.getElementById("word").value);
 			sessionStorage.setItem("def", document.getElementById("def").value);
-			console.log(document.getElementById("word").value);
-			//window.location = "game.html";
+			//console.log(document.getElementById("word").value);
+			window.location = "game.html";
 		}
 	}
 	function isValid(inputtxt){
 		   var letters = /^[A-Za-z]+$/;
-		   console.log(inputtxt.value + ", " +inputtxt);
+		   //console.log(inputtxt.value + ", " +inputtxt);
 		   if(!letters.test(inputtxt.value))
 		     {
 		      document.getElementById("warning").innerHTML = "Invalid characters!";
@@ -45,7 +45,7 @@
 		   else
 		     {
 	 	     document.getElementById("warning").innerHTML = "";
-		     console.log("return true")
+		     //console.log("return true")
 		     return true;
 		     }
 		  }
