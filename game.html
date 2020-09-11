@@ -213,7 +213,7 @@
 					var transAr = [1700, 2800, 3100,1200,800,1500,1100,1600]
 					var currWord = getWord();
 					var tries = 8;
-					var inputs = document.querySelectorAll('input.btn-grp');
+					var btns = document.querySelectorAll('div.btn-grp');
 					function checkLet(currBut){
 						currBut.style.cssText = "color : rgba(255,255,255,0);background-size: cover;";
 						console.log(gifNo);
@@ -267,6 +267,9 @@
 						}
 						document.getElementById("wordVar").innerHTML = finWord;
 						document.body.style.background = "#00005E";
+						for (var i = 0; i < btns.length; i++) {
+						  	btns[i].disabled = false;
+						}
 						document.getElementById("gameOvertxt").innerHTML = "GAME OVER";
 						document.getElementById("tryNo").innerHTML = "";
 					}
@@ -287,8 +290,8 @@
 						if (gifNo < gifAr.length-1){
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
 							if(gifNo % 2 == 1){	// all odd no gifs are transitional
-								for (var i = 0; i < inputs.length; i++) {
-						  			inputs[i].disabled = true;
+								for (var i = 0; i < btns.length; i++) {
+						  			btns[i].disabled = true;
 								}
 								window.setTimeout(trans, transAr[(gifNo-1)/2]); //2n+1 corresponds to gifNo index
 							}
@@ -297,14 +300,16 @@
 						else{
 							document.body.style.cssText = "background: url('" + gifAr[(gifAr.length)-1] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
 							window.setTimeout(end, transAr[(transAr.length)-1]);
-							
+							for (var i = 0; i < btns.length; i++) {
+						  		btns[i].disabled = true;
+							}
 						}
 					}
 					function trans(){
 							gifNo++
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
-							for (var i = 0; i < inputs.length; i++) {
-						  		inputs[i].disabled = false;
+							for (var i = 0; i < btns.length; i++) {
+						  		btns[i].disabled = false;
 							}
 					}
 					function newGame(){
