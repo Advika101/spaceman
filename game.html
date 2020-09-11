@@ -213,6 +213,7 @@
 					var transAr = [1700, 2800, 3100,1200,800,1500,1100,1600]
 					var currWord = getWord();
 					var tries = 8;
+					var inputs = document.querySelectorAll('input.btn-grp');
 					function checkLet(currBut){
 						currBut.style.cssText = "color : rgba(255,255,255,0);background-size: cover;";
 						console.log(gifNo);
@@ -286,6 +287,9 @@
 						if (gifNo < gifAr.length-1){
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
 							if(gifNo % 2 == 1){	// all odd no gifs are transitional
+								for (var i = 0; i < inputs.length; i++) {
+						  			inputs[i].disabled = true;
+								}
 								window.setTimeout(trans, transAr[(gifNo-1)/2]); //2n+1 corresponds to gifNo index
 							}
 							console.log(gifNo);
@@ -299,7 +303,9 @@
 					function trans(){
 							gifNo++
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
-
+							for (var i = 0; i < inputs.length; i++) {
+						  		inputs[i].disabled = false;
+							}
 					}
 					function newGame(){
 						sessionStorage.clear();
