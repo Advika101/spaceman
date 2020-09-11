@@ -213,8 +213,10 @@
 					var transAr = [1700, 2800, 3100,1200,800,1500,1100,1600]
 					var currWord = getWord();
 					var tries = 8;
-					var btns = document.querySelectorAll('div.btn-grp');
+					var btns = document.querySelectorAll('button');
+					console.log(btns);
 					function checkLet(currBut){
+						
 						currBut.style.cssText = "color : rgba(255,255,255,0);background-size: cover;";
 						console.log(gifNo);
 						currBut.style.backgroundImage = "url('letDissapear1.gif?" + Math.random() + "')";
