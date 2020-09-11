@@ -1,4 +1,3 @@
-
 <html>
 	<head><script src="https://code.jquery.com/jquery-3.2.1.min.js"></script></head>
 	<script>
@@ -127,6 +126,9 @@
 			   resize:both;
 			   width: 100%;
 			}
+			.pressed{
+				disabled: true;
+			}
 	</style>
 	<body>
 		<table style="margin:0px;width:100%">
@@ -216,7 +218,7 @@
 					var btns = document.querySelectorAll('button');
 					console.log(btns);
 					function checkLet(currBut){
-						
+						currBut.classList.add("pressed"); 
 						currBut.style.cssText = "color : rgba(255,255,255,0);background-size: cover;";
 						console.log(gifNo);
 						currBut.style.backgroundImage = "url('letDissapear1.gif?" + Math.random() + "')";
@@ -270,7 +272,9 @@
 						document.getElementById("wordVar").innerHTML = finWord;
 						document.body.style.background = "#00005E";
 						for (var i = 0; i < btns.length; i++) {
-						  	btns[i].disabled = false;
+						  	if(!(btns[i].className == "pressed")){
+								btns[i].disabled = false;
+							}
 						}
 						document.getElementById("gameOvertxt").innerHTML = "GAME OVER";
 						document.getElementById("tryNo").innerHTML = "";
@@ -293,7 +297,9 @@
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"
 							if(gifNo % 2 == 1){	// all odd no gifs are transitional
 								for (var i = 0; i < btns.length; i++) {
-						  			btns[i].disabled = true;
+									
+										btns[i].disabled = true;
+									
 								}
 								window.setTimeout(trans, transAr[(gifNo-1)/2]); //2n+1 corresponds to gifNo index
 							}
@@ -311,7 +317,10 @@
 							gifNo++
 							document.body.style.cssText = "background: url('" + gifAr[gifNo] +".gif') no-repeat center center fixed #000;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;";
 							for (var i = 0; i < btns.length; i++) {
-						  		btns[i].disabled = false;
+								console.log(btns[i].className);
+								if(!(btns[i].className == "pressed")){
+									btns[i].disabled = false;
+								}
 							}
 					}
 					function newGame(){
